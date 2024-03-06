@@ -1,0 +1,208 @@
+### 1. Escriba un programa que pida dos números enteros y que calcule su división, escribiendo si la división es exacta o no.
+
+def division ():
+  num1 = int(input("dame un número"))
+  num2 = int(input("dame otro número"))
+  if num1%num2 == 0:
+    print(f"la división de {num1} y {num2} es exacta")
+  else:
+    print(f"la división de {num1} y {num2} es entera")
+
+division()
+
+### 2. Escriba un programa que pida dos números y que conteste cuál es el menor y cuál el mayor o que escriba que son iguales.
+
+
+
+def mayor():
+  num1 = int(input("dame un número"))
+  num2 = int(input("dame otro número"))
+  if num1 < num2:
+    print(f"{num2} es mayor que {num1}")
+  elif num1 == num2:
+    print(f"{num2} son iguales {num1}")
+  else:
+    print(f"{num1} es mayor que {num2}")
+
+mayor()
+
+### 3. Escriba un programa que pida dos números enteros y que escriba si el mayor es múltiplo del menor.
+
+def multiplo():
+  num1 = int(input("dame un número"))
+  num2 = int(input("dame otro número"))
+  if num1 < num2:
+      if num2%num1 == 0:
+        print(f"{num2} es multiplo de {num1}")
+  elif num1 == num2:
+    print(f"{num2} son iguales {num1}")
+  else:
+    if num1%num2 == 0:
+      print(f"{num1} es multiplo de {num2}")
+
+multiplo()
+
+### 4.  Escriba un programa que pida la edad de una persona y diga si es bebé (menor de 4 años), niño (menor de 15 años), adolescente (menor de 19 años), adulto (menor de 70 años o igual) o anciano (mayor de 70 años).
+
+def comprobar_edad ():
+  edad = int(input("dime tu edad"))
+  if edad<4:
+    print("eres un bebé")
+  elif edad<15:
+    print("eres un niño")
+  elif edad<19:
+    print("eres un adolescente")
+  elif edad<=70:
+    print("eres un adulto")
+  else:
+    print("eres un anciano")
+
+comprobar_edad()
+
+### 5. Escriba un programa que pida un número entero mayor que cero y que escriba sus divisores.
+
+def divisores():
+  num1 = int(input("dame un número"))
+  for i in range(num1, 0, -1):
+    if num1%i == 0:
+      print(f"el {i} es divisor del {num1}")
+
+divisores()
+
+### 6. Escriba un programa que pida un número entero mayor que 1 y que escriba si el número es un número primo o no.
+
+def primo():
+  num1 = int(input("dame un número"))
+  if num1 <= 0:
+    return False
+  for i in range (2, num1//2+1):
+    if num1%i == 0:
+      return False
+  return True
+
+primo()
+
+### 7. Escribir un programa que pida un número y calcule la suma desde 1 hasta ese número
+
+def sumatorio():
+  num1 = int(input("dame un número"))
+  total = 0
+  for i in range(1, num1+1):
+    total += i
+  print(total)
+
+sumatorio()
+
+### 8. Imprime por pantalla la sucesión de Fibonacci de los 100 primeros números.
+
+def fibonacci():
+  a, b = 0, 1
+  for i in range(100):
+    print(a)
+    a, b = b, a+b
+
+fibonacci()
+
+### 9. Sumar los números impares del 1 al 100 y mostrar sólo el resultado, usando while.
+
+i=1
+total = 0
+while i<100:
+  if i%2 != 0:
+    total += i
+  i+=1
+print(total)
+
+
+### 10.  Crea una lista de nombres y devuelve otra lista con las iniciales de los nombres que aparecen en la primera. Hazlo de dos formas: usando bucles y usando lista por compresión.
+
+
+nombres = ["Barcelona", "Madrid", "Sevilla", "Valencia", "Valladolid"]
+
+iniciales_bucle = []
+for n in nombres:
+  iniciales_bucle.append(n[0])
+print(iniciales_bucle)
+
+iniciales_compresion = [n[0] for n in nombres]
+print(iniciales_compresion)
+
+
+### 11.  Crea una lista de nombres y apellidos, y devuelve otra lista sólo con los apellidos.
+
+lista_nombres_completos = ["Peter Parker", "Natasha Romanov", "Bruce Banner", "Thor Oddinson", "Tony Stark"]
+
+lista_apellidos = []
+for n in lista_nombres_completos:
+  lista_dividido = n.split()
+  lista_apellidos.append(lista_dividido[-1])
+
+print(lista_apellidos)
+
+
+### 12. Crea un diccionario de nombres de alumnos y notas y devuelve los nombres de los alumnos que estén suspensos.
+
+dic_notas = {"Peter Parker" : 5, "Natasha Romanov" : 10, "Bruce Banner" : 8, "Thor Oddinson" : 3, "Tony Stark": 4}
+
+nombres = dic_notas.keys()
+for i in nombres:
+  if dic_notas[i]<5:
+    print (f"{i} ha suspendido")
+
+### 13. Escribe un programa que pida al usuario un número entero. El programa debe pedir al usuario números, hasta que éste introduzca el número 13. En este caso, el programa debe devolver: "Enhorabuena, le ha tocado el premio".
+##### Pista: debes usar un bucle while con "algo más."
+
+def introducir_numeros():
+  while True:
+    num1 = int(input("dame un número"))
+    if num1 == 13:
+      print("Enhorabuena, le ha tocado el premio")
+      break
+
+introducir_numeros()
+
+### 14. Escribe un programa que pida al usuario una cadena de texto y cuente cuántas veces aparece cada letra en la cadena utilizando un bucle for.
+
+def contar_letras():
+  conteo_letras = {}
+  cadena_texto = input("escribe una cadena de texto")
+  for c in cadena_texto:
+    if c != " ":
+      conteo_letras[c] = conteo_letras.get(c, 0)+1
+
+  for letra, ocurrencia in conteo_letras.items():
+    print(f"la letra {letra} aparece {ocurrencia}")
+
+contar_letras()
+
+### 15. Escribe un programa que pida al usuario una palabra y determine si es un palíndromo (es decir, si se lee igual de izquierda a derecha que de derecha a izquierda) utilizando un bucle for.
+
+def palindromo():
+  palabra = input("escribe un texto")
+  palabra = palabra.lower().replace(" ", "")
+  for c in range(len(palabra)):
+    if palabra[c]==palabra[-(c+1)]:
+      respuesta = True
+    else:
+      respuesta = False
+  if respuesta:
+    print("esa palabra es un palíndromo")
+  else:
+    print("esa palabra no es un palíndromo")
+
+palindromo()
+
+### 16. Escribe un programa que pida al usuario una lista de números y determine cuál es el número más grande utilizando un bucle for.
+
+def ordenar_numeros ():
+  lista_numeros = []
+  while True:
+    num1 = int(input("dame un número, 0 para salir"))
+    lista_numeros.append(num1)
+    if num1 == 0:
+      break
+
+  lista_numeros.sort(reverse=True)
+  print(lista_numeros[0])
+
+ordenar_numeros()
