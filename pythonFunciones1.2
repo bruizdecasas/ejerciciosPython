@@ -1,0 +1,178 @@
+### 1 - Crea una funcion que reciba un numero variable de numeros, y nos de como resultado la suma ,la multiplicación y la media de todos ellos.
+
+def operaciones():
+  lista_numeros = []
+  producto = 1
+  while True:
+    num1 = int(input("dame un número, 0 para salir"))
+    if num1 == 0:
+      break
+    else:
+      lista_numeros.append(num1)
+
+  suma = sum(lista_numeros)
+  for i in range(len(lista_numeros)):
+    producto *= lista_numeros[i]
+  media = suma / len(lista_numeros)
+
+  return (f"la suma de todos los números es {suma},/n el producto de todos los números es {producto}/n y la media de números es {media}")
+
+operaciones()
+
+def operaciones():
+  lista_numeros = []
+  producto = 1
+  while True:
+    num1 = int(input("dame un número, 0 para salir"))
+    if num1 == 0:
+      break
+    else:
+      lista_numeros.append(num1)
+
+  suma = sum(lista_numeros)
+  print(f"la suma de todos los números es {suma}")
+
+  for i in range(len(lista_numeros)):
+    producto *= lista_numeros[i]
+  print(f"el producto de todos los números es {producto}")
+
+  media = suma / len(lista_numeros)
+  print(f"la media de números es {media}")
+
+operaciones()
+
+
+### 2 - Crea una función que me devuelva el mayor de todos los números de una lista que el pasemos.
+
+numeros = [5, 6, 7, 3, 9]
+
+def ordenar(lista):
+  lista.sort(reverse=True)
+  #print(f"el número mayor es {lista[0]}")
+  return f"el número mayor es {lista[0]}"
+ordenar(numeros)
+
+
+### 3 - Generador de contraseñas seguras: Escribe una función que genere contraseñas seguras. La función debe permitir especificar la longitud de la contraseña y generar una combinación aleatoria de letras (mayúsculas y minúsculas), números y caracteres especiales.(googlea un poco porque seguro hay alguna librería que nos evita tener que escribir todas las letras y símbolos...)
+
+import random
+import string
+
+def password ():
+  # string.ascii_letters me da un string con todas las letras en mayúsculas y minúsculas
+  # string.digits me da todos los números en forma de string
+  # string.punctuation me da los carácteres especiales
+  listado_caracteres = string.ascii_letters + string.digits + string.punctuation
+  passw = ""
+  longitud = int(input("¿cuántos caracteres debe tener la contraseña?"))
+  for i in range(0, longitud):
+    passw = passw + listado_caracteres[random.randint(0, len(listado_caracteres))]
+  return passw
+
+password()
+
+### 4 - Crear un programa al que le pueda pasar una o varias strings y me las devuelva todas ordenadas alfabéticamente. Ojo con la salida que si le paso 5 elementos me tiene que devolver 5 cadenas distintas.
+
+def ordernar_strings():
+  lista_strings = []
+  while True:
+    cadena = input("introduce una cadena de texto, 0 para salir")
+    if cadena == "0":
+      break
+    else:
+      lista_strings.append(cadena)
+  lista_strings.sort()
+  for i in lista_strings:
+    print(i)
+
+ordernar_strings()
+
+### 5 - Crear un diccionario a partir de dos listas (los elementos de una de ellas deben ser las claves del diccionario y los elementos de la otra, los valores del diccionario).
+
+
+list_nombres = ["Peter", "Natasha", "Bruce", "Thor", "Tony"]
+list_apellidos = ["Parker", "Romanov", "Banner", "Oddinson", "Stark"]
+diccionario = {}
+
+for i in range (len(list_nombres)):
+  diccionario[list_nombres[i]] = list_apellidos[i]
+
+print(diccionario)
+
+
+### 6 -Crea una función que tome dos números y un operador (+, -, *, /) como argumentos y devuelva el resultado de la operación.
+
+def calculadora():
+  num1 = int(input("Dame el primer número"))
+  num2 = int(input("Dame el segundo número"))
+  operacion = input("Ahora dame la operacion (+, -, *, /)")
+
+  if operacion == "+":
+    suma = num1 + num2
+    return f"la suma de los números {num1} y {num2} es {suma}"
+  elif operacion == "-":
+    resta = num1 - num2
+    return f"la resta de los números {num1} y {num2} es {resta}"
+  elif operacion == "*":
+    producto = num1 * num2
+    return f"el producto de los números {num1} y {num2} es {producto}"
+  elif operacion == "/":
+    cociente = num1/num2
+    return f"el cociente de los números {num1} y {num2} es {cociente}"
+  else:
+    return "no me intentes trolear"
+
+calculadora()
+
+
+
+### 7 - Escribe una función que tome una cadena de texto como argumento y cuente el número de palabras en esa cadena. Puedes asumir que las palabras están separadas por espacios.
+
+cadena_texto = "Sin tele y sin cerveza Homer pierde la cabeza"
+
+def contar_palabras(texto):
+  lista_palabras = texto.split()
+  contador = 0
+  for i in lista_palabras:
+    contador += 1
+  return f"la cadena de texto tiene {contador} palabras"
+
+contar_palabras(cadena_texto)
+
+### 8 - Define una lambda que tome una palabra como argumento y determine si es un palíndromo (es decir, si se lee igual de izquierda a derecha y de derecha a izquierda).
+
+palabra = "ala"
+
+lambda_palindromo = lambda palabra : print("es palíndromo") if palabra == palabra[::-1] else print("no es un palíndromo")
+
+lambda_palindromo(palabra)
+
+
+### 9 - Crea una función que tome un número como argumento y genere una lista de todos los números primos menores o iguales a ese número.
+
+def primo(num1):
+  if num1 <= 0:
+    return False
+  for i in range (2, num1//2+1):
+    if num1%i == 0:
+      return False
+  print(f"el número {num1} es primo")
+
+def consulta():
+  num = int(input("Dame un número"))
+  for i in range (2, num+1):
+    primo(i)
+
+consulta()
+
+
+
+### 10 - Escribe un programa que pregunte al usuario por su edad y muestre todos los años que ha alcanzado (desde el 1 hasta su edad).
+
+def edad():
+  annos = int(input("¿cuál es tu edad?"))
+
+  for i in range(1, annos+1):
+    print(f"en algún momento cumpliste {i} años")
+
+edad()
